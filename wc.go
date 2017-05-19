@@ -1,6 +1,6 @@
 // wordcount is a word counter command line utilitary
 // usage: wordcount [pathtofile]
-// writes a wordcount.txt file
+// output to standard output
 
 package main
 
@@ -72,12 +72,7 @@ func main() {
 		}
 	}
 
-	resultFile, err := os.Create("/tmp/wordcount.txt")
-	if err != nil {
-		log.Fatalln(err)
-	}
-
 	for word, count := range wordMap {
-		resultFile.WriteString(fmt.Sprintln(word, count))
+		fmt.Println(word, count)
 	}
 }
